@@ -1,0 +1,797 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Bintang Teknik melayani jasa service dan perbaikan elektronik rumah tangga. Booking mudah melalui WhatsApp."
+    />
+    <title>Bintang Teknik | Service Elektronik</title>
+    <style>
+      :root {
+        --navy: #102b4e;
+        --blue: #1769aa;
+        --cyan: #27b5d9;
+        --ink: #182536;
+        --muted: #64748b;
+        --light: #f3f7fb;
+        --white: #fff;
+        --line: #e4ebf2;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        color: var(--ink);
+        line-height: 1.6;
+        background: #fff;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      .container {
+        width: min(1120px, 92%);
+        margin: auto;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: #ffffffed;
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav {
+        height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      .brand {
+        font-size: 21px;
+        font-weight: 800;
+        color: var(--navy);
+        letter-spacing: 0.4px;
+      }
+      .brand span {
+        color: var(--cyan);
+      }
+      nav {
+        display: flex;
+        gap: 25px;
+        align-items: center;
+        font-size: 14px;
+        font-weight: 700;
+        color: #34465b;
+      }
+      nav a:hover {
+        color: var(--blue);
+      }
+      .nav-cta,
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--blue);
+        color: #fff;
+        padding: 12px 19px;
+        border-radius: 9px;
+        font-weight: 700;
+        border: 0;
+        cursor: pointer;
+      }
+      .nav-cta:hover,
+      .btn:hover {
+        background: var(--navy);
+      }
+      .menu-btn {
+        display: none;
+        background: none;
+        border: 0;
+        font-size: 25px;
+        color: var(--navy);
+      }
+      .hero {
+        background: linear-gradient(
+          115deg,
+          #102b4e 0%,
+          #14588d 65%,
+          #1686ae 100%
+        );
+        color: white;
+        padding: 88px 0 82px;
+        overflow: hidden;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 40px;
+        align-items: center;
+      }
+      .eyebrow {
+        display: inline-block;
+        padding: 7px 12px;
+        border: 1px solid #ffffff55;
+        border-radius: 30px;
+        font-size: 12px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #d8f5ff;
+      }
+      h1 {
+        font-size: clamp(36px, 5vw, 57px);
+        line-height: 1.12;
+        margin: 20px 0 18px;
+        letter-spacing: -1.5px;
+      }
+      .hero p {
+        font-size: 17px;
+        color: #e0edf7;
+        max-width: 570px;
+        margin: 0 0 28px;
+      }
+      .hero .btn {
+        background: var(--cyan);
+        color: #082944;
+      }
+      .hero .btn.secondary {
+        background: transparent;
+        color: white;
+        border: 1px solid #ffffff80;
+        margin-left: 10px;
+      }
+      .hero-art {
+        background: #ffffff13;
+        border: 1px solid #ffffff30;
+        border-radius: 24px;
+        padding: 28px;
+        min-height: 280px;
+        display: grid;
+        place-items: center;
+        text-align: center;
+      }
+      .hero-icon {
+        font-size: 92px;
+        line-height: 1.2;
+      }
+      .hero-art strong {
+        display: block;
+        font-size: 21px;
+        margin-top: 12px;
+      }
+      .hero-art small {
+        color: #d9eaf5;
+      }
+      section {
+        padding: 76px 0;
+      }
+      .section-head {
+        text-align: center;
+        max-width: 650px;
+        margin: 0 auto 38px;
+      }
+      .section-head .tag {
+        color: var(--blue);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 1.4px;
+        text-transform: uppercase;
+      }
+      h2 {
+        font-size: clamp(27px, 3.5vw, 37px);
+        line-height: 1.2;
+        color: var(--navy);
+        margin: 10px 0;
+      }
+      .section-head p {
+        color: var(--muted);
+        margin: 10px 0 0;
+      }
+      .services {
+        background: var(--light);
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 17px;
+      }
+      .service-card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 15px;
+        padding: 23px 18px;
+        transition: 0.2s;
+        box-shadow: 0 5px 18px #102b4e08;
+      }
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 28px #102b4e13;
+        border-color: #b7d9ef;
+      }
+      .service-icon {
+        width: 55px;
+        height: 55px;
+        border-radius: 14px;
+        background: #e8f5fc;
+        display: grid;
+        place-items: center;
+        font-size: 28px;
+        margin-bottom: 16px;
+      }
+      .service-card h3 {
+        margin: 0 0 7px;
+        color: var(--navy);
+        font-size: 17px;
+      }
+      .service-card p {
+        font-size: 13px;
+        color: var(--muted);
+        margin: 0 0 14px;
+      }
+      .service-card button {
+        border: 0;
+        background: none;
+        color: var(--blue);
+        font-weight: 800;
+        padding: 0;
+        cursor: pointer;
+      }
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 55px;
+        align-items: center;
+      }
+      .about-panel {
+        background: linear-gradient(145deg, #e8f6fc, #f5f9fc);
+        border-radius: 22px;
+        padding: 36px;
+        min-height: 280px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .about-panel .big {
+        font-size: 62px;
+      }
+      .about-panel h3 {
+        color: var(--navy);
+        font-size: 23px;
+        margin: 8px 0;
+      }
+      .about-copy p {
+        color: var(--muted);
+      }
+      .checks {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 22px;
+      }
+      .checks span {
+        font-weight: 700;
+        font-size: 14px;
+        color: #29445f;
+      }
+      .checks span:before {
+        content: "✓";
+        color: #13a6a0;
+        font-weight: 900;
+        margin-right: 8px;
+      }
+      .booking {
+        background: var(--light);
+      }
+      .booking-grid {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 38px;
+        align-items: start;
+      }
+      .booking-info {
+        background: var(--navy);
+        color: #fff;
+        padding: 30px;
+        border-radius: 18px;
+      }
+      .booking-info h3 {
+        font-size: 24px;
+        margin: 0 0 12px;
+      }
+      .booking-info p {
+        color: #d6e5f2;
+      }
+      .info-line {
+        padding: 14px 0;
+        border-top: 1px solid #ffffff2b;
+        font-size: 14px;
+      }
+      .info-line b {
+        display: block;
+        color: #fff;
+      }
+      form {
+        background: #fff;
+        padding: 30px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        box-shadow: 0 8px 28px #102b4e08;
+      }
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        margin-bottom: 15px;
+      }
+      label {
+        font-size: 13px;
+        font-weight: 700;
+        color: #34465b;
+      }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 12px 13px;
+        border: 1px solid #d6e0e9;
+        border-radius: 8px;
+        font: inherit;
+        font-size: 14px;
+        background: #fff;
+        color: var(--ink);
+      }
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: 2px solid #b9e5f5;
+        border-color: var(--blue);
+      }
+      textarea {
+        resize: vertical;
+        min-height: 95px;
+      }
+      form .btn {
+        width: 100%;
+        font-size: 15px;
+        padding: 14px;
+      }
+      .hint {
+        font-size: 12px;
+        color: var(--muted);
+        margin: 12px 0 0;
+      }
+      .contact {
+        text-align: center;
+        padding: 58px 0;
+        background: #eaf6fb;
+      }
+      .contact h2 {
+        margin-top: 0;
+      }
+      .contact p {
+        color: var(--muted);
+        margin: 0 auto 22px;
+        max-width: 600px;
+      }
+      footer {
+        background: #0b2039;
+        color: #d8e5f0;
+        padding: 27px 0;
+        font-size: 13px;
+      }
+      .footer-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .wa-float {
+        position: fixed;
+        right: 22px;
+        bottom: 22px;
+        z-index: 20;
+        background: #20bd68;
+        color: white;
+        border-radius: 50px;
+        padding: 13px 18px;
+        font-weight: 800;
+        box-shadow: 0 8px 25px #0003;
+      }
+      @media (max-width: 900px) {
+        .cards {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .hero-grid {
+          grid-template-columns: 1fr 0.75fr;
+        }
+        .booking-grid {
+          grid-template-columns: 1fr 1.2fr;
+        }
+      }
+      @media (max-width: 680px) {
+        .nav {
+          height: 64px;
+        }
+        nav {
+          display: none;
+          position: absolute;
+          top: 64px;
+          left: 0;
+          right: 0;
+          background: white;
+          padding: 18px 5%;
+          border-bottom: 1px solid var(--line);
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+        }
+        nav.open {
+          display: flex;
+        }
+        .nav-cta {
+          display: none;
+        }
+        .menu-btn {
+          display: block;
+        }
+        .hero {
+          padding: 65px 0;
+        }
+        .hero-grid,
+        .about-grid,
+        .booking-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero-art {
+          min-height: 190px;
+        }
+        .hero-icon {
+          font-size: 65px;
+        }
+        section {
+          padding: 58px 0;
+        }
+        .cards {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .form-grid {
+          grid-template-columns: 1fr;
+          gap: 0;
+        }
+        .checks {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 390px) {
+        .cards {
+          grid-template-columns: 1fr;
+        }
+        .hero .btn.secondary {
+          margin: 10px 0 0;
+        }
+        .hero .btn {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <a class="brand" href="#beranda">BINTANG <span>TEKNIK</span></a>
+        <nav id="navMenu">
+          <a href="#beranda">Beranda</a><a href="#layanan">Layanan</a
+          ><a href="#tentang">Tentang Kami</a><a href="#booking">Booking</a
+          ><a href="#kontak">Kontak</a>
+        </nav>
+        <a class="nav-cta" href="#booking">Booking Service</a>
+        <button
+          class="menu-btn"
+          aria-label="Buka menu"
+          onclick="document.getElementById('navMenu').classList.toggle('open')"
+        >
+          ☰
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="beranda">
+        <div class="container hero-grid">
+          <div>
+            <span class="eyebrow"
+              >Solusi perbaikan elektronik rumah tangga</span
+            >
+            <h1>Elektronik Bermasalah? <br />Kami Siap Membantu.</h1>
+            <p>
+              Bintang Teknik melayani jasa pemeriksaan, perawatan, dan perbaikan
+              peralatan elektronik rumah tangga dengan proses pemesanan yang
+              mudah.
+            </p>
+            <a class="btn" href="#booking">Pesan Service Sekarang</a>
+            <a class="btn secondary" href="#layanan">Lihat Layanan</a>
+          </div>
+          <div class="hero-art">
+            <div>
+              <div class="hero-icon">⭐</div>
+              <strong>BINTANG TEKNIK</strong
+              ><small>Partner perawatan elektronik Anda</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="services" id="layanan">
+        <div class="container">
+          <div class="section-head">
+            <span class="tag">Layanan Kami</span>
+            <h2>Service Berbagai Elektronik</h2>
+            <p>
+              Pilih jenis perangkat yang ingin diperiksa atau diperbaiki. Klik
+              tombol untuk mengisi layanan pada formulir booking.
+            </p>
+          </div>
+          <div class="cards">
+            <article class="service-card">
+              <div class="service-icon">❄️</div>
+              <h3>Service AC</h3>
+              <p>Pemeriksaan, perawatan, dan perbaikan AC.</p>
+              <button onclick="chooseService('Service AC')">
+                Pilih layanan →
+              </button>
+            </article>
+            <article class="service-card">
+              <div class="service-icon">🧊</div>
+              <h3>Service Kulkas</h3>
+              <p>Penanganan kulkas tidak dingin dan gangguan lainnya.</p>
+              <button onclick="chooseService('Service Kulkas')">
+                Pilih layanan →
+              </button>
+            </article>
+            <article class="service-card">
+              <div class="service-icon">🧺</div>
+              <h3>Service Mesin Cuci</h3>
+              <p>Pemeriksaan mesin cuci dan kendala pencucian.</p>
+              <button onclick="chooseService('Service Mesin Cuci')">
+                Pilih layanan →
+              </button>
+            </article>
+            <article class="service-card">
+              <div class="service-icon">🚰</div>
+              <h3>Service Dispenser</h3>
+              <p>Perbaikan dispenser panas, dingin, atau tidak berfungsi.</p>
+              <button onclick="chooseService('Service Dispenser')">
+                Pilih layanan →
+              </button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="tentang">
+        <div class="container about-grid">
+          <div class="about-panel">
+            <div class="big">🔧</div>
+            <h3>Bintang Teknik</h3>
+            <p>Solusi service elektronik untuk kebutuhan rumah tangga.</p>
+          </div>
+          <div class="about-copy">
+            <span
+              class="tag"
+              style="
+                color: var(--blue);
+                font-size: 12px;
+                font-weight: 800;
+                letter-spacing: 1px;
+              "
+              >Tentang Kami</span
+            >
+            <h2>Membantu Perangkat Anda Kembali Berfungsi</h2>
+            <p>
+              Bintang Teknik menyediakan layanan pemeriksaan dan perbaikan
+              elektronik rumah tangga. Kami berupaya memberikan pelayanan yang
+              komunikatif, praktis, dan sesuai kebutuhan pelanggan.
+            </p>
+            <p>
+              Untuk mengetahui estimasi biaya dan jadwal pengerjaan, silakan
+              hubungi kami melalui WhatsApp.
+            </p>
+            <div class="checks">
+              <span>Pemesanan mudah</span><span>Komunikasi langsung</span
+              ><span>Pilihan layanan jelas</span
+              ><span>Respon melalui WhatsApp</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="booking" id="booking">
+        <div class="container">
+          <div class="section-head">
+            <span class="tag">Booking Service</span>
+            <h2>Jadwalkan Perbaikan Anda</h2>
+            <p>
+              Isi data berikut. Rincian permintaan akan disiapkan dan dikirim
+              melalui WhatsApp.
+            </p>
+          </div>
+          <div class="booking-grid">
+            <div class="booking-info">
+              <h3>Butuh bantuan service?</h3>
+              <p>
+                Lengkapi formulir di samping agar kami mengetahui perangkat dan
+                kendala yang Anda alami.
+              </p>
+              <div class="info-line">
+                <b>Proses pemesanan</b>Isi formulir → Kirim WhatsApp →
+                Konfirmasi dengan admin
+              </div>
+              <div class="info-line">
+                <b>Jam pelayanan</b>Silakan konfirmasi jadwal melalui WhatsApp
+              </div>
+              <div class="info-line"><b>Kontak</b>WhatsApp Bintang Teknik</div>
+            </div>
+            <form id="bookingForm">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="nama">Nama pelanggan *</label
+                  ><input
+                    id="nama"
+                    name="nama"
+                    required
+                    placeholder="Masukkan nama Anda"
+                  />
+                </div>
+                <div class="field">
+                  <label for="telepon">Nomor WhatsApp *</label
+                  ><input
+                    id="telepon"
+                    name="telepon"
+                    required
+                    type="tel"
+                    placeholder="08xxxxxxxxxx"
+                  />
+                </div>
+              </div>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="layananPilihan">Jenis layanan *</label
+                  ><select id="layananPilihan" name="layanan" required>
+                    <option value="">Pilih perangkat</option>
+                    <option>Service AC</option>
+                    <option>Service Kulkas</option>
+                    <option>Service Mesin Cuci</option>
+                    <option>Service TV</option>
+                    <option>Service Dispenser</option>
+                    <option>Lainnya</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="tanggal">Tanggal yang diinginkan</label
+                  ><input id="tanggal" name="tanggal" type="date" />
+                </div>
+              </div>
+              <div class="field">
+                <label for="alamat">Alamat pelanggan *</label
+                ><input
+                  id="alamat"
+                  name="alamat"
+                  required
+                  placeholder="Alamat lengkap atau wilayah"
+                />
+              </div>
+              <div class="field">
+                <label for="keluhan">Ceritakan kerusakan *</label
+                ><textarea
+                  id="keluhan"
+                  name="keluhan"
+                  required
+                  placeholder="Contoh: AC tidak dingin, mesin cuci tidak berputar..."
+                ></textarea>
+              </div>
+              <button class="btn" type="submit">
+                Kirim Booking ke WhatsApp
+              </button>
+              <p class="hint">
+                Dengan menekan tombol, WhatsApp akan terbuka dengan pesan
+                booking yang sudah disiapkan.
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="kontak">
+        <div class="container">
+          <h2>Hubungi Bintang Teknik</h2>
+          <p>
+            Punya pertanyaan atau ingin berkonsultasi mengenai kerusakan
+            perangkat elektronik? Hubungi kami melalui WhatsApp.
+          </p>
+          <a
+            class="btn"
+            href="#"
+            onclick="
+              openWhatsApp(
+                'Halo Bintang Teknik, saya ingin bertanya tentang layanan service.',
+              );
+              return false;
+            "
+            >Chat WhatsApp</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-row">
+        <span
+          >© <span id="year"></span> Bintang Teknik. Semua hak dilindungi.</span
+        ><span>Service Elektronik Rumah Tangga</span>
+      </div>
+    </footer>
+    <a
+      class="wa-float"
+      href="#"
+      onclick="
+        openWhatsApp(
+          'Halo Bintang Teknik, saya ingin bertanya tentang layanan service.',
+        );
+        return false;
+      "
+      >☏ WhatsApp</a
+    >
+
+    <script>
+      // Ganti nomor di bawah dengan nomor WhatsApp bisnis Anda (format 62, tanpa tanda + atau spasi).
+      const NOMOR_WHATSAPP_BINTANG_TEKNIK = "6282113440860";
+
+      function openWhatsApp(message) {
+        const url =
+          "https://wa.me/" +
+          NOMOR_WHATSAPP_BINTANG_TEKNIK +
+          "?text=" +
+          encodeURIComponent(message);
+        window.open(url, "_blank");
+      }
+      function chooseService(service) {
+        document.getElementById("layananPilihan").value = service;
+        document
+          .getElementById("booking")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+      document
+        .getElementById("bookingForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const data = new FormData(this);
+          const pesan = [
+            "Halo Bintang Teknik, saya ingin booking service.",
+            "",
+            "Nama: " + data.get("nama"),
+            "Nomor WhatsApp: " + data.get("telepon"),
+            "Layanan: " + data.get("layanan"),
+            "Tanggal yang diinginkan: " +
+              (data.get("tanggal") || "Belum ditentukan"),
+            "Alamat: " + data.get("alamat"),
+            "Keluhan: " + data.get("keluhan"),
+          ].join("\n");
+          openWhatsApp(pesan);
+        });
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
